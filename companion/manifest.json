@@ -1,0 +1,26 @@
+{
+	"id": "jellybrick-pear-desktop",
+	"name": "jellybrick-pear-desktop",
+	"shortname": "pear-desktop",
+	"version": "1.0.0",
+	"description": "Control pear-devs Pear Desktop (https://github.com/pear-devs/pear-desktop)",
+	"license": "MIT",
+	"repository": "git+https://github.com/Beastlybear2017/companion-module-jellybrick-pear-desktop.git",
+	"bugs": "https://github.com/Beastlybear2017/companion-module-jellybrick-pear-desktop/issues",
+	"maintainers": [
+		{
+			"name": "Kieran Boyle",
+			"email": "kieran00709@gmail.com"
+		}
+	],
+	"runtime": {
+		"type": "node22",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../dist/main.js"
+	},
+	"legacyIds": [],
+	"manufacturer": "pear-devs",
+	"products": ["Pear Desktop"],
+	"keywords": ["ytmd", "youtube", "music", "desktop", "api", "pear"]
+}
