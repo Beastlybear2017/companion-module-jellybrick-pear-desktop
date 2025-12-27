@@ -140,8 +140,9 @@ export class ModuleInstance extends InstanceBase<ModuleConfig> {
 						typeof message.volume === 'number' && message.volume >= 0 ? apiVolumeToLinear(message.volume) : prev.volume
 
 					const duration = song.songDuration ?? prev.duration ?? 0
-					const elapsedSeconds = song.elapsedSeconds ?? message.position ?? prev.elapsedSeconds ?? 0
-
+					const tempElapsedSeconds = song.elapsedSeconds ?? message.position ?? 0
+					const elapsedSeconds = tempElapsedSeconds <= duration ? tempElapsedSeconds : prev.elapsedSeconds
+					
 					this.data = {
 						title: song.title ?? prev.title ?? '',
 						artist: song.artist ?? prev.artist ?? '',
