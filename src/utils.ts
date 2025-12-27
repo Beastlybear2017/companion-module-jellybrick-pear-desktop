@@ -13,19 +13,6 @@ export const formatTime = (time: number | string): string => {
 	return `${hrsStr}${minsStr}${secsStr}`
 }
 
-export function apiVolumeToLinear(api: number): number {
-	const maxApi = 100
-
-	const clamped = Math.max(0, Math.min(api, maxApi))
-	const normalized = clamped / maxApi
-
-	const exponent = 0.48
-
-	const linear = Math.pow(normalized, exponent) * 100
-
-	return Math.round(linear)
-}
-
 const REPEAT_MODES: Record<string, number> = {
 	NONE: 0,
 	ALL: 1,

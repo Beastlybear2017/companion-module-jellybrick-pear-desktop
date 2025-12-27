@@ -4,7 +4,7 @@ import { ModuleInstance } from './main.js'
 export const variableDefinitions: CompanionVariableDefinition[] = [
 	{ variableId: 'title', name: 'Title of the currently playing track' },
 	{ variableId: 'artist', name: 'Artist of the currently playing track' },
-	{ variableId: 'volumePercent', name: 'Volume of the player (1-100%)' },
+	{ variableId: 'volume', name: 'Volume of the player (0-100)' },
 	{ variableId: 'muted', name: 'State of mute (true, false))' },
 	{ variableId: 'duration', name: 'Duration of the currently playing track (seconds)' },
 	{ variableId: 'duration_formatted', name: 'Duration of the currently playing track' },
@@ -30,7 +30,7 @@ export async function UpdateVariables(self: ModuleInstance): Promise<void> {
 	self.setVariableValues({
 		title: currentData?.title,
 		artist: currentData?.artist,
-		volumePercent: currentData?.volume,
+		volume: currentData?.volume,
 		muted: currentData?.muted,
 		duration: currentData?.duration,
 		duration_formatted: currentData.duration_formatted,

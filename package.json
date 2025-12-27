@@ -2,7 +2,7 @@
 	"name": "companion-module-jellybrick-pear-desktop",
 	"main": "dist/main.js",
 	"type": "module",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"scripts": {
 		"postinstall": "husky",
 		"format": "prettier -w .",

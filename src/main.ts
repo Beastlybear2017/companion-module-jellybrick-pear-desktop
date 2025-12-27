@@ -5,7 +5,7 @@ import { UpgradeScripts } from './upgrades.js'
 import { UpdateActions } from './actions.js'
 import { UpdateFeedbacks } from './feedbacks.js'
 import WebSocket from 'ws'
-import { apiVolumeToLinear, formatTime } from './utils.js'
+import { formatTime } from './utils.js'
 
 interface ModuleData {
 	title: string
@@ -136,13 +136,12 @@ export class ModuleInstance extends InstanceBase<ModuleConfig> {
 
 					const pausedFromPlaying = typeof message.isPlaying === 'boolean' ? !message.isPlaying : undefined
 
-					const volume =
-						typeof message.volume === 'number' && message.volume >= 0 ? apiVolumeToLinear(message.volume) : prev.volume
+					const volume = typeof message.volume === 'number' && message.volume >= 0 ? message.volume : prev.volume
 
 					const duration = song.songDuration ?? prev.duration ?? 0
-					const tempElapsedSeconds = song.elapsedSeconds ?? message.position ?? 0
+					const tempElapsedSeconds = song.elapsedSeconds ?? message.position ?? duration + 10
 					const elapsedSeconds = tempElapsedSeconds <= duration ? tempElapsedSeconds : prev.elapsedSeconds
-					
+
 					this.data = {
 						title: song.title ?? prev.title ?? '',
 						artist: song.artist ?? prev.artist ?? '',
