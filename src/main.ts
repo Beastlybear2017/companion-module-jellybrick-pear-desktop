@@ -121,6 +121,7 @@ export class ModuleInstance extends InstanceBase<ModuleConfig> {
 							songDuration?: number
 							elapsedSeconds?: number
 							videoId?: string
+							isPaused?: boolean
 						}
 						isPlaying?: boolean
 						isPaused?: boolean
@@ -146,7 +147,7 @@ export class ModuleInstance extends InstanceBase<ModuleConfig> {
 						title: song.title ?? prev.title ?? '',
 						artist: song.artist ?? prev.artist ?? '',
 						imageSrc,
-						isPaused: message.isPaused ?? pausedFromPlaying ?? prev.isPaused,
+						isPaused: song.isPaused ?? message.isPaused ?? pausedFromPlaying ?? prev.isPaused,
 						duration,
 						duration_formatted: formatTime(String(duration)) ?? '',
 						elapsedSeconds,
